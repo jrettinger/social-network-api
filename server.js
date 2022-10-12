@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3001;
 env.config();
 
 //MONGODB CONNECTION
-require("./db/connection");
+require("./config/connection");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
