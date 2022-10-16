@@ -1,15 +1,8 @@
-const mongoose = require("mongoose");
+const { connect, connection } = require("mongoose");
 
-const DB = process.env.DATABASE;
+connect("mongodb://localhost/challengeDB", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  })
-  .then(() => {
-    console.log("Database connected");
-  })
-  .catch((err) => console.log("Database not connected"));
+module.exports = connection;
